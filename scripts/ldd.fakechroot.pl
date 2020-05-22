@@ -71,7 +71,7 @@ sub objdump {
     my (@files) = @_;
 
     foreach my $file (@files) {
-        $file = (($file =~ m{^/} && $file !~ /$ExcludedPaths/)) ? "$Base$file" : "$Cwd/$file";
+        $file = (($file =~ m{^/} && $file !~ /$ExcludedPaths/)) ? "$Base$file" : "$file";
 
         local *PIPE;
         open PIPE, "objdump -p '$file' 2>/dev/null |";
